@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Accueil</title>
+		<meta charset="utf-8">
+		<meta name = "format-detection" content = "telephone=no" />
+		<link rel="icon" href="images/favicon.ico">
+		<link rel="shortcut icon" href="images/favicon.ico" />
+		<link rel="stylesheet" href="css/owl.carousel.css">
+		<link rel="stylesheet" href="css/slider.css">
+		<link rel="stylesheet" href="css/style.css">
+		<script src="js/jquery.js"></script>
+		<script src="js/jquery-migrate-1.1.1.js"></script>
+		<script src="js/script.js"></script>
+		<script src="js/jquery.ui.totop.js"></script>
+		<script src="js/superfish.js"></script>
+		<script src="js/jquery.equalheights.js"></script>
+		<script src="js/jquery.mobilemenu.js"></script>
+		<script src="js/jquery.easing.1.3.js"></script>
+		<script src="js/owl.carousel.js"></script>
+		<script src="js/jquery.flexslider-min.js"></script>
+		<script src="js/kwiks.js"></script>
+		<script>
+			$(document).ready(function(){
+				$().UItoTop({ easingType: 'easeOutQuart' });
+				var owl = $("#owl");
+				owl.owlCarousel({
+					items : 4, //10 items above 1000px browser width
+					itemsDesktop : [995,3], //5 items between 1000px and 901px
+					itemsDesktopSmall : [767, 2], // betweem 900px and 601px
+					itemsTablet: [700, 2], //2 items between 600 and 0
+					itemsMobile : [479, 1], // itemsMobile disabled - inherit from itemsTablet option
+					navigation : true,
+				});
+			})
+			var Main = Main || {};
+			jQuery(window).load(function() {
+				window.responsiveFlag = jQuery('#responsiveFlag').css('display');
+				Main.gallery = new Gallery();
+				jQuery(window).resize(function() {
+					Main.gallery.update();
+				});
+			});
+			function Gallery(){
+				var self = this,
+					container = jQuery('.flexslider'),
+					clone = container.clone( false );
+					this.init = function (){
+						if( responsiveFlag == 'block' ){
+						var slides = container.find('.slides');
+						slides.kwicks({
+							max : 500,
+							spacing : 0
+						}).find('li > a').click(function (){
+							return false;
+						});
+						} else {
+							container.flexslider();
+						}
+					}
+					this.update = function () {
+						var currentState = jQuery('#responsiveFlag').css('display');
+						if(responsiveFlag != currentState) {
+							responsiveFlag = currentState;
+							container.replaceWith(clone);
+							container = clone;
+							clone = container.clone( false );
+							this.init();
+						}
+					}
+				this.init();
+			}
+		</script>
+		<!--[if lt IE 8]>
+		<div style=' clear: both; text-align:center; position: relative;'>
+			<a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+				<img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." />
+			</a>
+		</div>
+		<![endif]-->
+		<!--[if lt IE 9]>
+		<script src="js/html5shiv.js"></script>
+		<link rel="stylesheet" media="screen" href="css/ie.css">
+		<![endif]-->
+	</head>
+	<body class="page1" id="top">
+<!--==============================header=================================-->
+		<header>
+			<div class="clear"></div>
+			<div class="container_12">
+				<div class="grid_12">
+					<h1>
+						<a href="index.html">
+							<img src="bb.png" alt="Your Happy Family">
+						</a>
+					</h1>
+					<div class="menu_block">
+						<nav class="horizontal-nav full-width horizontalNav-notprocessed">
+							<ul class="sf-menu">
+								<li class="current"><a href="index.html">Home</a>
+									<ul>
+										<li><a href="#"></a></li>
+										<li><a href="#"></a></li>
+										<li><a href="#"></a>
+										<ul>
+											<li><a href="#"> </a></li>
+											<li><a href="#"></a></li>
+										</ul>
+									</ul>
+								</li>
+								<li><a href="index-1.html">Nos Video</a></li>
+								<li><a href="index-2.html">Campagnes</a></li>
+								<li><a href="index-3.html">Bénévole </a></li>
+								<li><a href="index-4.html">Nos contacts</a></li>
+							</ul>
+						</nav>
+						<div class="clear"></div>
+					</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+		</header>
+		<div class="main">
+<!--==============================Content=================================-->
+			<div class="content"><div class="ic"></div>
+				<div class="container_12">
+					<div class="grid_8">
+						<div class="flexslider">
+							<ul class="slides">
+								<li>
+									<img src="images/page1_img1.jpg" alt="">
+									<div class="flex-caption">
+										<p>Joie</p>
+									</div>
+								</li>
+								<li>
+									<img src="bb.jpg" alt="">
+									<div class="flex-caption c2">
+										<p>Protection</p>
+									</div>
+								</li>
+								<li>
+									<img src="images/page1_img3.jpg" alt="">
+									<div class="flex-caption">
+										<p>Aide</p>
+									</div>
+								</li>
+							</ul>
+						</div>
+						<span id="responsiveFlag"></span>
+					</div>
+					<div class="grid_4">
+						<a href="#" class="donate">Donts</a>
+						<div class="text1">Nous pouvons changer la vie de ceux qui n'ont aucun espoirt</div>
+						<p>L'objectif du projet Lumière du Coeur est de mettre de la limièere dans la vie des enfants afin de les rendre heureux.</p>
+					</div>
+					<div class="clear"></div>
+					<div class="grid_3">
+						<div class="block2 maxheight">
+							<div class="title">Notre mission</div>
+							<div class="pad">
+								Notre mission principal c'est donner le sourir aux enfants .
+							</div>
+						</div>
+					</div>
+					<div class="grid_3">
+						<div class="block2 maxheight">
+							<div class="title">Déjà réaliser</div>
+							<div class="pad">
+								Touvrer un foyer pour les enfants, prendre soin d'eux et les inscrire dans des écoles.
+							</div>
+						</div>
+					</div>
+					<div class="grid_3">
+						<div class="block2 maxheight">
+							<div class="title">publications</div>
+							<div class="pad">
+								Nos publication sont sur notre site.
+							</div>	
+						</div>
+					</div>
+					<div class="grid_3">
+						<div class="block2 maxheight">
+							<div class="title">Participants</div>
+							<div class="pad">
+								Aminata Ndiaye est la présidente et fondatrice de l'association, elle ouvre ses portes à tous ceux qui veulent aider ces magnifiques enfants. Donc tout le monde est en mesure de participer et faire parti de l'assiciation Lumière Du Coeur.
+							</div>
+						</div>	
+					</div>
+					<div class="clear"></div>
+					<div class="grid_12">
+						<h2>Vous pouvez les venir en aide</h2>
+						<div id="owl">
+							<div class="item">
+								<a href="#"><img src="images/page1_img4.jpg" alt="">Jim <br>
+								8 </a>
+							</div>
+							<div class="item it1">
+								<a href="#"><img src="ibou.jpg" alt="">Ibou <br>
+								1 ans</a>
+							</div>
+							<div class="item it2">
+								<a href="#"><img src="images/page1_img6.jpg" alt="">Linda <br>
+								5 ans</a>
+							</div>
+							<div class="item it3">
+								<a href="#"><img src="images/page1_img7.jpg" alt="">Mark  <br>
+								6 ans</a>
+							</div>
+							<div class="item">
+								<a href="#"><img src="images/page1_img4.jpg" alt="">Jim <br>
+								8 ans</a>
+							</div>
+							<div class="item it1">
+								<a href="#"><img src="images/page1_img5.jpg" alt="">Ann <br>
+								3 ans</a>
+							</div>
+							<div class="item it2">
+								<a href="#"><img src="images/page1_img6.jpg" alt="">Linda <br>
+								5ans</a>
+							</div>
+							<div class="item it3">
+								<a href="#"><img src="images/page1_img7.jpg" alt="">Mark  <br>
+								6 ans</a>
+							</div>
+						</div>
+					</div>
+					<div class="grid_4">
+						<h3 class="nowrap mb0"></h3>
+						<time class="st1" datetime="2013-01-01"></time>
+						
+						<div class="alright"><a href="#" class=""></a></div>
+					</div>
+					<div class="grid_7 prefix_1">
+						</div>
+					</div>	
+					<h3>La fondatrice</h3>
+						<img src="amina.jpg" alt="" class="img_inner fleft">
+						<div class="extra_wrapper">
+							<p>Aminata Ndiaye présidente et fondatrice de Lumière Du Coeur<span class="col1"><a href=" http://blog.templatemonster.com/free-website-templates/" rel="dofollow"></a></span>.</p>
+							 <span class="col1"><a href="http://www.templatemonster.com/category/charity-website-templates" rel="nofollow "></a></span> .
+						</div>
+						<div class="clear"></div>
+						<div class="alright"><a href="#" class=""</a></div>
+					</div>
+				</div>
+			</div>
+<!--==============================footer=================================-->
+			
+							<strong>Lumière du Coeur</strong>   &copy; <span id="copyright-year"></span> | <a href="#">Privacy Policy</a><br>
+							 <a href="http://store.templatemonster.com?aff=netsib1" rel="nofollow"></a>
+						</div>
+					</div>
+				</div>
+			</footer>
+		</div>
+	</body>
+</html>
